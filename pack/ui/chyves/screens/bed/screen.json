@@ -1,0 +1,83 @@
+{
+    "namespace": "chyves_bed",
+    "screen_content": {
+        "type": "panel",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "text": {
+                    "type": "label",
+                    "text": "chyves.inbedtext",
+                    "font_scale_factor": 1.5,
+                    "offset": [
+                        0,
+                        -5
+                    ]
+                }
+            },
+            {
+                "buttons_stack": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "size": [
+                        "100%c",
+                        32
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "offset": [
+                        0,
+                        32
+                    ],
+                    "controls": [
+                        {
+                            "wake_up_button@chyves_button.regular_button": {
+                                "size": [
+                                    130,
+                                    32
+                                ],
+                                "$button_text": "multiplayer.stopSleeping",
+                                "button_mappings": [
+                                    {
+                                        "from_button_id": "button.menu_select",
+                                        "to_button_id": "button.wake_up_button",
+                                        "mapping_type": "pressed"
+                                    },
+                                    {
+                                        "from_button_id": "button.menu_ok",
+                                        "to_button_id": "button.wake_up_button",
+                                        "mapping_type": "pressed"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "chat_button@chyves_button.regular_button": {
+                                "size": [
+                                    130,
+                                    32
+                                ],
+                                "$button_text": "multiplayer.inBedOpenChat",
+                                "button_mappings": [
+                                    {
+                                        "from_button_id": "button.menu_select",
+                                        "to_button_id": "button.chat",
+                                        "mapping_type": "pressed"
+                                    },
+                                    {
+                                        "from_button_id": "button.menu_ok",
+                                        "to_button_id": "button.chat",
+                                        "mapping_type": "pressed"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

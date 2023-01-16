@@ -1,0 +1,297 @@
+{
+    "namespace": "chyves_hud_renderers",
+
+    "ck": {
+        "type": "panel",
+        "anchor_from": "bottom_right",
+        "anchor_to": "bottom_right",
+        "size": [
+            90,
+            60
+        ],
+        "offset": [
+            -5,
+            -5
+        ],
+        "controls": [
+            {
+                "w@ck_bt": {
+                    "offset": [
+                        -29,
+                        -29
+                    ],
+                    "$focus_id": "w",
+                    "$text": "W"
+                }
+            },
+            {
+                "a@ck_bt": {
+                    "$focus_id": "d",
+                    "$text": "A",
+                    "offset": [
+                        -60,
+                        2
+                    ]
+                }
+            },
+            {
+                "s@ck_bt": {
+                    "$focus_id": "s",
+                    "$text": "S",
+                    "offset": [
+                        -29,
+                        2
+                    ]
+                }
+            },
+            {
+                "d@ck_bt": {
+                    "$focus_id": "a",
+                    "$text": "D",
+                    "offset": [
+                        2,
+                        2
+                    ]
+                }
+            }
+        ]
+    },
+    
+    "ck_bt": {
+        "type": "panel",
+        "controls": [
+            {
+                "bt@common_buttons.light_content_button": {
+                    "$pressed_button_name": "button.chyves",
+                    "$button_content": "chyves_hud_renderers.ck_t",
+                    "size": [
+                        30,
+                        30
+                    ],
+                    "$border_default_alpha": 0,
+                    "$hover_state_border_visible": false,
+                    "$default_button_texture": "textures/chyves/blank",
+                    "$hover_button_texture": "textures/chyves/blank",
+                    "anchor_from": "bottom_right",
+                    "anchor_to": "bottom_right",
+                    "focus_change_up": "w",
+                    "focus_change_down": "s",
+                    "focus_change_left": "a",
+                    "focus_change_right": "d",
+                    "button_mappings": []
+                }
+            }
+        ]
+    },
+    "ck_t": {
+        "type": "image",
+        "size": [
+            30,
+            30
+        ],
+        "texture": "$bg",
+        "$bg|default": "",
+        "$offset|default": [0, 0],
+        "variables": [
+            {
+                "requires": "$default_state",
+                "$bg": "textures/chyves/tui/buttons/regular/regular_button_hover"
+            },
+            {
+                "requires": "$hover_state",
+                "$bg": "textures/chyves/tui/buttons/regular/regular_button_pressed",
+                "$offset": [
+                    0,
+                    2
+                ]
+            }
+        ],
+        "controls": [
+            {
+                "text": {
+                    "type": "label",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "text": "$text",
+                    "offset": "$offset",
+                    "color": [0, 0, 0]
+                }
+            }
+        ]
+    },
+
+    "config": {
+        "type": "panel",
+        "$is_chyves": true
+    },
+    "hive_scoreboard_pad": {
+        "type": "panel",
+        "size": [
+            "100%",
+            23
+        ],
+        "anchor_from": "$anchor",
+        "anchor_to": "$anchor",
+        "bindings": [
+            {
+                "binding_name": "#objective_sidebar_name"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#objective_sidebar_name = 'support.playhive.com/ui')",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+    "shiny_pots_glint": {
+        "type": "image",
+        "texture": "textures/chyves/tui/glint_texture",
+        "layer": 1,
+        "size": [
+            16,
+            16
+        ],
+        "alpha": 0.8,
+        "offset": [
+            0,
+            0
+        ],
+        "bindings": [
+            {
+                "binding_name": "#item_id_aux",
+                "binding_type": "collection",
+                "binding_collection_name": "hotbar_items"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((#item_id_aux = 27918341) or ((#item_id_aux > 27918341) and (#item_id_aux < 27918379)))",
+                "target_property_name": "#chyves_sp_one"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(((#item_id_aux > 36765698) and (#item_id_aux < 36765739)) or ((#item_id_aux > 36831234) and (#item_id_aux < 36831275)))",
+                "target_property_name": "#chyves_sp_two"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#chyves_sp_one or #chyves_sp_two)",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+    "ag": {
+        "type": "image",
+        "texture": "textures/ui/hud_tip_text_background",
+        "alpha": 0.7,
+        "size": [
+            "100%c + 12px",
+            "100%c + 5px"
+        ],
+        "anchor_from": "right_middle",
+        "anchor_to": "right_middle",
+        "bindings": [
+            {
+                "binding_name": "#objective_sidebar_name"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#objective_sidebar_name = 'support.playhive.com/ui')",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "label": {
+                    "type": "label",
+                    "text": "Game Status: §2Won",
+                    "bindings": [
+                        {
+                            "binding_name": "#hud_title_text_string",
+                            "binding_name_override": "#text",
+                            "binding_type": "global"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(not ((#text - 'Sweet Victory') = #text)))",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "label2": {
+                    "type": "label",
+                    "text": "Game Status: §cLost",
+                    "bindings": [
+                        {
+                            "binding_name": "#hud_title_text_string",
+                            "binding_name_override": "#text",
+                            "binding_type": "global"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((not ((#text - 'You Died') = #text))) and (((#sub_text - 'Respawning') = #sub_text))))",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "label52": {
+                    "type": "label",
+                    "text": "Game Status: §4Lost",
+                    "bindings": [
+                        {
+                            "binding_name": "#hud_title_text_string",
+                            "binding_name_override": "#text",
+                            "binding_type": "global"
+                        },
+                        {
+                            "binding_name": "#hud_subtitle_text_string",
+                            "binding_name_override": "#sub_text",
+                            "binding_type": "global"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((not ((#text - 'You died') = #text))) and (((#sub_text - 'Respawning') = #sub_text))))",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "label3": {
+                    "type": "label",
+                    "text": "Game Status: §6Inconclusive",
+                    "bindings": [
+                        {
+                            "binding_name": "#hud_title_text_string",
+                            "binding_name_override": "#text",
+                            "binding_type": "global"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(not ((#text - 'Sweet Victory') = #text)))",
+                            "target_property_name": "#chyves_hive_victory"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(not ((#text - 'You died') = #text)))",
+                            "target_property_name": "#chyves_hive_lose"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(not ((#text - 'You Died') = #text)))",
+                            "target_property_name": "#chyves_hive_lose_two"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((not #chyves_hive_victory) and (not #chyves_hive_lose) and (not #chyves_hive_lose_two)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

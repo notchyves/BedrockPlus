@@ -1,0 +1,30 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.chyves2": {
+            "initial_state": "calculation",
+            "states": {
+                "default": {
+                    "on_entry": [
+                        "variable.life_time = query.life_time;"
+                    ],
+                    "transitions": [
+                        {
+                            "calculation": "query.is_in_ui && ((query.life_time - variable.life_time) > 0.045)"
+                        }
+                    ]
+                },
+                "calculation": {
+                    "on_entry": [
+                        "variable.chyves2 = query.ground_speed;"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "1"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

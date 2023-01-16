@@ -1,0 +1,13 @@
+{
+    "ui_defs": [
+        "ui/chyves/chyves_common.json", // link to all of the components
+        "ui/chyves/chyves_button.json", // ore ui buttons,
+        "ui/chyves/chyves_toggle.json", // ore ui toggles, and toggles with ore ui button form
+        "ui/chyves/screens/bed/screen.json", // bed screen
+        "ui/chyves/screens/death/screen.json", // death screen
+        "ui/chyves/screens/hud/mod_menu.json", // mod menu
+        "ui/chyves/screens/hud/renderers.json", // hud helpers
+        "ui/chyves/screens/pause/screen.json", // pause screen
+        "ui/chyves/screens/play/screen.json" // play screen
+    ]
+}

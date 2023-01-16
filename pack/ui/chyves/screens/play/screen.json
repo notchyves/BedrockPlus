@@ -1,0 +1,864 @@
+{
+    "namespace": "chyves_play",
+    "screen_content": {
+        "type": "panel",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "close_button@chyves_button.regular_button": {
+                    "size": [
+                        30,
+                        30
+                    ],
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "$button_text": "x",
+                    "offset": [
+                        8,
+                        9
+                    ],
+                    "$pressed_button_name": "button.menu_exit"
+                }
+            },
+            {
+                "border": {
+                    "type": "image",
+                    "size": [
+                        "60%",
+                        "75% + 2px"
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "texture": "textures/ui/black_border",
+                    "alpha": 0.6,
+                    "layer": 2,
+                    "offset": [
+                        0,
+                        2
+                    ]
+                }
+            },
+            {
+                "border2": {
+                    "texture": "textures/ui/Black",
+                    "alpha": 0.4,
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "type": "image",
+                    "size": [
+                        "60%",
+                        "75% + 2px"
+                    ],
+                    "layer": 3,
+                    "offset": [
+                        0,
+                        2
+                    ]
+                }
+            },
+            {
+                "main_con": {
+                    "type": "stack_panel",
+                    "size": [
+                        "60%",
+                        "75%"
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "controls": [
+                        {
+                            "top_panel": {
+                                "type": "stack_panel",
+                                "size": [
+                                    "100%",
+                                    35
+                                ],
+                                "orientation": "horizontal",
+                                "controls": [
+                                    {
+                                        "world@chyves_toggle.regular_button_toggle": {
+                                            "size": [
+                                                "33.3%",
+                                                "100%"
+                                            ],
+                                            "$button_text": "selectWorld.tab.worlds",
+                                            "$toggle_name": "play_screen_top_tabs",
+                                            "$tab_view_binding_name": "chyves_world_tab",
+                                            "$toggle_group_forced_index": 0
+                                        }
+                                    },
+                                    {
+                                        "friends@chyves_toggle.regular_button_toggle": {
+                                            "size": [
+                                                "33.3%",
+                                                "100%"
+                                            ],
+                                            "$button_text": "selectWorld.tab.friends",
+                                            "$toggle_name": "play_screen_top_tabs",
+                                            "$tab_view_binding_name": "chyves_friends_tab",
+                                            "$toggle_group_forced_index": 1
+                                        }
+                                    },
+                                    {
+                                        "servers@chyves_toggle.regular_button_toggle": {
+                                            "size": [
+                                                "33.3%",
+                                                "100%"
+                                            ],
+                                            "$button_text": "selectWorld.tab.thirdParty",
+                                            "$toggle_name": "play_screen_top_tabs",
+                                            "$tab_view_binding_name": "chyves_servers_tab",
+                                            "$toggle_group_forced_index": 2
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "container@chyves_play.container": {}
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "container": {
+        "type": "panel",
+        "size": [
+            "100%",
+            "fill"
+        ],
+        "controls": [
+            {
+                "worlds_container@worlds_container": {}
+            },
+            {
+                "friends_container@friends_container": {}
+            },
+            {
+                "servers_container@servers_container": {}
+            }
+        ]
+    },
+    "sign_in_to_view_realms_button@chyves_button.pink_button": {
+        "$pressed_button_name": "button.menu_sign_in_to_view_realms",
+        "size": [
+            "100%",
+            35
+        ],
+        "$button_text": "#realms_sign_in_prompt_friends",
+        "bindings": [
+            {
+                "binding_name": "#realms_sign_in_prompt_friends"
+            },
+            {
+                "binding_name": "#realms_sign_in_button_visible",
+                "binding_name_override": "#visible"
+            }
+        ]
+    },
+    "create_on_realms_button_panel@chyves_button.pink_button": {
+        "$button_text": "createWorldScreen.createOnRealms",
+        "$pressed_button_name": "button.create_on_realms_button",
+        "size": [
+            "100%",
+            35
+        ],
+        "bindings": [
+            {
+                "binding_name": "#create_on_realms_button_visible",
+                "binding_name_override": "#visible"
+            }
+        ]
+    },
+    "chyves_realms_button@chyves_button.pink_button": {
+        "size": [
+            "100%",
+            35
+        ],
+        "ignored": "$world_picker_screen",
+        "$pressed_button_name": "button.menu_realm_world_trial",
+        "$button_text": "chyves.playrealmstext",
+        "bindings": [
+            {
+                "binding_name": "#cross_platform_enabled",
+                "binding_name_override": "#enabled"
+            },
+            {
+                "binding_type": "global",
+                "binding_name": "#realm_trial_button_visible",
+                "binding_name_override": "#visible"
+            }
+        ]
+    },
+    "worlds_container": {
+        "type": "panel",
+        "controls": [
+            {
+                "stack": {
+                    "type": "stack_panel",
+                    "orientation": "vertical",
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "controls": [
+                        {
+                            "hor_stack": {
+                                "type": "stack_panel",
+                                "orientation": "horizontal",
+                                "size": [
+                                    "100%",
+                                    35
+                                ],
+                                "controls": [
+                                    {
+                                        "create@chyves_button.regular_button": {
+                                            "variables": [
+                                                {
+                                                    "requires": "($local_world_upload)",
+                                                    "$pressed_button_name": "button.new_world_upload"
+                                                },
+                                                {
+                                                    "requires": "(not $local_world_upload)",
+                                                    "$pressed_button_name": "button.menu_local_world_create"
+                                                },
+                                                {
+                                                    "requires": "$is_editor_mode_enabled",
+                                                    "$button_text": "playscreen.editor.create"
+                                                }
+                                            ],
+                                            "$button_text": "selectWorld.createNew",
+                                            "size": [
+                                                "50%",
+                                                35
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "import@chyves_button.regular_button": {
+                                            "variables": [
+                                                {
+                                                    "requires": "($local_world_upload)",
+                                                    "$pressed_button_name": "button.archived_world_upload"
+                                                },
+                                                {
+                                                    "requires": "(not $local_world_upload)",
+                                                    "$pressed_button_name": "button.menu_import_level"
+                                                }
+                                            ],
+                                            "$button_text": "chyves.playimporttext",
+                                            "size": [
+                                                "50%",
+                                                35
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "realms_panel": {
+                                "ignored": "(not $is_realms_enabled)",
+                                "type": "stack_panel",
+                                "size": [
+                                    "100%",
+                                    "100%c"
+                                ],
+                                "bindings": [
+                                    {
+                                        "binding_name": "#personal_realms_grid_visible",
+                                        "binding_name_override": "#visible"
+                                    }
+                                ],
+                                "$tts_section_header": "playscreen.realms",
+                                "controls": [
+                                    {
+                                        "sign_in_to_view_realms_button@chyves_play.sign_in_to_view_realms_button": {}
+                                    },
+                                    {
+                                        "create_on_realms_button_panel@chyves_play.create_on_realms_button_panel": {}
+                                    },
+                                    {
+                                        "personal_realms@play.realms_world_item_grid": {
+                                            "ignored": "$world_picker_screen",
+                                            "$grid_name": "#personal_realms_grid_dimension",
+                                            "$realms_worlds_collection_name": "personal_realms",
+                                            "$grid_item_layout": "play.realms_world_item"
+                                        }
+                                    },
+                                    {
+                                        "placeholder_personal_realms_panel@play.label_background": {
+                                            "size": [
+                                                "100%",
+                                                "100%c - 12px"
+                                            ],
+                                            "min_size": [
+                                                "100%",
+                                                39
+                                            ], // Grid item size is 29 + 10 for label, grid items overdraw by 1px
+                                            "ignored": "$world_picker_screen",
+                                            "controls": [
+                                                {
+                                                    "placeholder_loading_personal_realms": {
+                                                        "type": "grid",
+                                                        "layer": 1,
+                                                        "anchor_to": "top_left",
+                                                        "anchor_from": "top_left",
+                                                        "size": [
+                                                            "100%",
+                                                            "default"
+                                                        ],
+                                                        "collection_name": "loading_personal_realms",
+                                                        "grid_item_template": "play.empty_grid",
+                                                        "grid_dimension_binding": "#loading_personal_realms_grid_dimension",
+                                                        "bindings": [
+                                                            {
+                                                                "binding_name": "#loading_personal_realms_grid_dimension"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "loading_friends_realms_label@play.loading_label": {
+                                                        "$message_binding_name": "#realms_loading_display_message"
+                                                    }
+                                                },
+                                                {
+                                                    "padding": {
+                                                        "type": "panel",
+                                                        "size": [
+                                                            "100%",
+                                                            4
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "progress_loading_bars@play.progress_loading_bars": {}
+                                                }
+                                            ],
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#loading_personal_realms_grid_visible",
+                                                    "binding_name_override": "#visible"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    // This is to emulate the sizing behavior of the Realms grid which overdraws by 1 pixel to create a single stroke border
+                                    {
+                                        "realms_trial_panel": {
+                                            "type": "panel",
+                                            "size": [
+                                                "100%",
+                                                29
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "chyves_realms_button@chyves_realms_button": {}
+                                                }
+                                            ],
+                                            "bindings": [
+                                                {
+                                                    "binding_type": "global",
+                                                    "binding_name": "#realm_trial_button_visible",
+                                                    "binding_name_override": "#visible"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "realms_nintendo_first_realm_purchase_panel": {
+                                            "type": "panel",
+                                            "size": [
+                                                "100%",
+                                                29
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "realms_world_item_button@common_buttons.dark_content_button": {
+                                                        "size": [
+                                                            "100%",
+                                                            30
+                                                        ],
+                                                        "ignored": "$world_picker_screen",
+                                                        "$pressed_button_name": "button.menu_realm_nintendo_first_realm_purchase_button",
+                                                        "$button_content": "play.realms_trial_content_panel",
+                                                        "$button_content_text": "playscreen.realmsCreateFirstWorld",
+                                                        "$focus_id": "realms_trial_button"
+                                                    }
+                                                }
+                                            ],
+                                            "bindings": [
+                                                {
+                                                    "binding_type": "global",
+                                                    "binding_name": "#realm_nintendo_first_realm_purchase_button_visible",
+                                                    "binding_name_override": "#visible"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "padding_1": {
+                                            "type": "panel",
+                                            "size": [
+                                                "100%",
+                                                4
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "realms_multiplayer_blocked_panel": {
+                                "ignored": "(not $is_realms_enabled)",
+                                "type": "stack_panel",
+                                "size": [
+                                    "100%",
+                                    "100%c"
+                                ],
+                                "visible": false,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#multiplayer_blocked_panel_visible",
+                                        "binding_name_override": "#visible"
+                                    }
+                                ],
+                                "controls": [
+                                    {
+                                        "text_panel@play.label_content_template": {
+                                            "$label_content_label": "playscreen.header.realms",
+                                            "$label_content_content": "play.information_panel",
+                                            "$information_panel_label_text": "#multiplayer_sessions",
+                                            "$information_panel_label_text_binding_type": "global",
+                                            "$information_panel_label_text_binding_condition": "always_when_visible"
+                                        }
+                                    },
+                                    {
+                                        "open_uri_button@play.open_account_setting_button": {}
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "scroll_panel@common.scrolling_panel": {
+                                "type": "panel",
+                                "$show_background": false,
+                                "$scroll_size": [
+                                    "5px",
+                                    "100%"
+                                ],
+                                "$scroll_bar_left_padding_size": [
+                                    0,
+                                    0
+                                ],
+                                "layer": 10,
+                                "size": [
+                                    "100%",
+                                    "fill"
+                                ],
+                                "anchor_from": "bottom_middle",
+                                "anchor_to": "bottom_middle",
+                                "$scrolling_content": "chyves_play.worlds_content"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "chyves_world_tab",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+    "worlds_content": {
+        "type": "stack_panel",
+        "size": [
+            "100%",
+            "100%c"
+        ],
+        "orientation": "horizontal",
+        "controls": [
+            {
+                "grid@play.local_world_item_grid": {
+                    "$tts_section_header": "playscreen.worlds",
+                    "variables": [
+                        {
+                            "requires": "$pre_release",
+                            "$tts_section_header": "playscreen.beta_worlds"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    "realms_world_item": {
+        "type": "stack_panel",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "layer": 1,
+        "size": [ "100% - 2px", 29 ],
+        "orientation": "horizontal",
+        "controls": [
+          {
+            "realms_world_item_button@play.realms_world_item_button": {
+              "size": [ "fill", "100% + 1px" ],
+              "layer": 1
+            }
+          },
+          {
+            "edit_panel": {
+              "type": "panel",
+              "size": [ "100%y - 1px", "100% + 1px" ],
+              "controls": [
+                {
+                  "realms_world_edit_button@play.realms_world_edit_button": {
+                    "layer": 1
+                  }
+                },
+                {
+                  "realms_world_expiry_notification_image": {
+                    "type": "image",
+                    "texture": "textures/ui/update",
+                    "offset": [ 0, -10 ],
+                    "size": [ 8, 15 ],
+                    "anchor_from": "top_right",
+                    "anchor_to": "top_right",
+                    "layer": 7,
+                    "bindings": [
+                      {
+                        "binding_type": "collection",
+                        "binding_name": "#realms_world_expiry_notification_visible",
+                        "binding_name_override": "#visible",
+                        "binding_collection_name": "$realms_worlds_collection_name"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "bindings": [
+                {
+                  "binding_name": "#realms_edit_visible",
+                  "binding_name_override": "#visible",
+                  "binding_type": "collection",
+                  "binding_collection_name": "$realms_worlds_collection_name"
+                }
+              ]
+            }
+          },
+          {
+            "feed_panel": {
+              "type": "panel",
+              "size": [ "100%c - 1px", "100% + 1px" ],
+              "controls": [
+                {
+                  "realms_feed_button@play.realms_feed_button": {
+                    "layer": 1
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "leave_realm_panel": {
+              "type": "panel",
+              "size": [ "100%c - 1px", "100% + 1px" ],
+              "controls": [
+                {
+                  "leave_friends_realm_button@play.leave_friends_realm_button": {
+                    "layer": 1
+                  }
+                }
+              ],
+              "bindings": [
+                {
+                  "binding_name": "#leave_realm_button_visible",
+                  "binding_name_override": "#visible",
+                  "binding_type": "collection",
+                  "binding_collection_name": "$realms_worlds_collection_name"
+                }
+              ]
+            }
+          }
+        ]
+      },
+
+    "friends_container": {
+        "type": "panel",
+        "controls": [
+            {
+                "1": {
+                    "type": "stack_panel",
+                    "size": ["100%", "100%"],
+                    "orientation": "vertical",
+                    "controls": [
+                        {
+                            "hor_stack": {
+                                "type": "stack_panel",
+                                "orientation": "horizontal",
+                                "size": [
+                                    "100%",
+                                    35
+                                ],
+                                "controls": [
+                                    {
+                                        "friends@chyves_button.regular_button": {
+                                            "$pressed_button_name": "button.menu_network_add_friend",
+                                            "$button_text": "networkWorld.add_friend",
+                                            "ignored": "((not $supports_add_friend) or $nx_os or $is_ps4)",
+                                            "size": [
+                                                "50%",
+                                                35
+                                            ],
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#add_friend_button_visible",
+                                                    "binding_name_override": "#visible",
+                                                    "binding_type": "global"
+                                                },
+                                                {
+                                                    "binding_name": "#cross_platform_enabled",
+                                                    "binding_name_override": "#enabled"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "joinbycode@chyves_button.regular_button": {
+                                            "$button_text": "networkWorld.joinByCode",
+                                            "$pressed_button_name": "button.menu_network_join_by_code_popup_join",
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#join_by_code_visible",
+                                                    "binding_name_override": "#visible",
+                                                    "binding_type": "global"
+                                                },
+                                                {
+                                                    "binding_name": "#cross_platform_enabled",
+                                                    "binding_name_override": "#enabled"
+                                                }
+                                            ],
+                                            "size": [
+                                                "50%",
+                                                35
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "v_stack": {
+                                "type": "stack_panel",
+                                "orientation": "vertical",
+                                "size": [
+                                    "100%",
+                                    "100%c"
+                                ],
+                                "controls": [
+                                    {
+                                        "friends_realms@play.realms_world_item_grid": {
+                                            "$grid_name": "#friend_realms_grid_dimension",
+                                            "$realms_worlds_collection_name": "friends_realms",
+                                            "$grid_item_layout": "chyves_play.realms_world_item"
+                                        }
+                                    },
+                                    {
+                                        "friends_grid@play.label_content_template": {
+                                            "$label_content_label": "networkWorld.joinable_friends_label",
+                                            "$label_content_content": "play.network_world_item_grid",
+                                            "$network_world_grid_item_template": "play.network_world_item",
+                                            "$network_world_icon": "play.friends_server_icon",
+                                            "$hide_network_icon": "$hide_xbox_live_icon",
+                                            "$network_world_item_grid_dimension_binding": "#friends_network_world_item_grid_dimension",
+                                            "$collection_name": "friends_network_worlds",
+                                            "$header_icon_visible": true,
+                                            "$tts_section_header": "$label_content_label",
+                                            "variables": [
+                                                {
+                                                    "requires": "$nx_os",
+                                                    "$label_content_label": "networkWorld.joinable_nintendo_friends_label"
+                                                },
+                                                {
+                                                    "requires": "$is_ps4",
+                                                    "$label_content_label": "networkWorld.joinable_berwick_friends_label"
+                                                }
+                                            ],
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#friends_grid_visible",
+                                                    "binding_name_override": "#visible"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "pad_hack_panel": {
+                                            // Grid items are actually rendering 1 pixel more than their size
+                                            // this is to avoid double-borders
+                                            // however, this means we now need an extra pixel for the last grid item
+                                            // also add 2 pixels to make it look nice
+                                            "type": "panel",
+                                            "size": [
+                                                "100%",
+                                                3
+                                            ],
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#friends_grid_visible",
+                                                    "binding_name_override": "#visible"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "no_friends_grid_message@play.label_content_template": {
+                                            "ignored": "$education_edition",
+                                            "$label_content_label": "networkWorld.joinable_friends_label",
+                                            "$label_content_content": "play.information_panel",
+                                            "$information_panel_label_text": "#no_friends_grid_message_text",
+                                            "$information_panel_label_text_binding_type": "global",
+                                            "$information_panel_label_text_binding_condition": "always_when_visible",
+                                            "$tts_section_header": "$label_content_label",
+                                            "variables": [
+                                                {
+                                                    "requires": "$nx_os",
+                                                    "$label_content_label": "networkWorld.joinable_nintendo_friends_label"
+                                                },
+                                                {
+                                                    "requires": "$is_ps4",
+                                                    "$label_content_label": "networkWorld.joinable_berwick_friends_label"
+                                                }
+                                            ],
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#no_friends_grid_message_text"
+                                                },
+                                                {
+                                                    "binding_name": "#no_friends_grid_message_visible",
+                                                    "binding_name_override": "#visible"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    // Find Cross-Platform Friends button, only on Switch platform for now
+                                    {
+                                        "switch_find_cross_platform_friend_button@play.add_friend_button": {
+                                            "ignored": "(not $nx_os and not $is_ps4)",
+                                            "size": [
+                                                "100%",
+                                                30
+                                            ],
+                                            "$button_text": "networkWorld.find_cross_platform_friends",
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#add_friend_button_visible",
+                                                    "binding_name_override": "#visible",
+                                                    "binding_type": "global"
+                                                },
+                                                {
+                                                    "binding_name": "#cross_platform_enabled",
+                                                    "binding_name_override": "#enabled"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "add_friend_button_padding": {
+                                            "ignored": "(not $nx_os and not $is_ps4)",
+                                            "type": "panel",
+                                            "size": [
+                                                0,
+                                                2
+                                            ]
+                                        }
+                                    },
+                                    // Cross Platform Friends Grid
+                                    {
+                                        "cross_platform_friends_grid@play.label_content_template": {
+                                            "$label_content_label": "networkWorld.joinable_cross_platform_friends_label",
+                                            "$label_content_content": "play.network_world_item_grid",
+                                            "$network_world_grid_item_template": "play.network_world_item",
+                                            "$network_world_icon": "play.cross_platform_friends_server_icon",
+                                            "$hide_network_icon": "$hide_xbox_live_icon",
+                                            "$network_world_item_grid_dimension_binding": "#cross_platform_friends_network_world_item_grid_dimension",
+                                            "$collection_name": "cross_platform_friends_network_worlds",
+                                            "$header_icon_visible": true,
+                                            "ignored": "(not $nx_os and not $is_ps4)",
+                                            "$tts_section_header": "$label_content_label",
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#cross_platform_friends_grid_visible",
+                                                    "binding_name_override": "#visible"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "no_cross_platform_friends_grid_message@play.label_content_template": {
+                                            "$label_content_label": "networkWorld.joinable_cross_platform_friends_label",
+                                            "$label_content_content": "play.information_panel",
+                                            "$information_panel_label_text": "#no_cross_platform_friends_grid_message_text",
+                                            "$information_panel_label_text_binding_type": "global",
+                                            "$information_panel_label_text_binding_condition": "always_when_visible",
+                                            "ignored": "(not $nx_os and not $is_ps4)",
+                                            "$tts_section_header": "$label_content_label",
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#no_cross_platform_friends_grid_message_text"
+                                                },
+                                                {
+                                                    "binding_name": "#no_cross_platform_friends_grid_message_visible",
+                                                    "binding_name_override": "#visible"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "general_no_multiplayer_grid_message@play.label_content_template": {
+                                            "$label_content_label": "networkWorld.joinable_friends_label",
+                                            "$label_content_content": "play.information_panel",
+                                            "$information_panel_label_text": "#general_no_multiplayer_grid_message_text",
+                                            "$information_panel_label_text_binding_type": "global",
+                                            "$information_panel_label_text_binding_condition": "always_when_visible",
+                                            "$tts_section_header": "$label_content_label",
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#general_no_multiplayer_grid_message_text"
+                                                },
+                                                {
+                                                    "binding_name": "#general_no_multiplayer_grid_message_visible",
+                                                    "binding_name_override": "#visible"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "lan_grid@play.lan_servers_scroll_content": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "chyves_friends_tab",
+                "source_property_name": "(#toggle_state)",
+                "target_property_name": "#visible"
+            }
+        ]
+    }
+}

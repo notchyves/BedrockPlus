@@ -1,0 +1,517 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.status_hud": {
+			"geometry": "geometry.status_hud",
+			"materials": [
+				{
+					"*": "material.default"
+				}
+			],
+			"textures": [
+				"query.is_jumping ? texture.jumping : (query.is_sneaking ? texture.sneaking : (query.is_swimming ? texture.swimming : (query.is_sprinting ? texture.sprinting : ((query.modified_move_speed >= 0.02) ? texture.moving : ((q.modified_move_speed < 0.02) ? texture.standing : texture.blank)))))"
+			],
+			"is_hurt_color": {},
+			"on_fire_color": {},
+			"light_color_multiplier": 1.15,
+			"ignore_lighting": true
+		},
+		"controller.render.directionhud": {
+			"geometry": "Geometry.directionhud",
+			"materials": [
+				{
+					"*": "Material.directionhud"
+				}
+			],
+			"textures": [
+				"Texture.directionhud"
+			],
+			"filter_lighting": true,
+			"ignore_lighting": true,
+			"light_color_multiplier": 1.25,
+			"is_hurt_color": {},
+			"on_fire_color": {},
+			"uv_anim": {
+				"offset": [
+					"0.00277777777778 * (90 + query.camera_rotation(1))",
+					0
+				],
+				"scale": [
+					1,
+					1
+				]
+			}
+		},
+		"controller.render.chyves_cape": {
+			"geometry": "geometry.chyves_cape",
+			"materials": [
+				{
+					"*": "Material.default"
+				}
+			],
+			"textures": [
+				"texture.default"
+			]
+		},
+		"controller.render.chyves_cape_bow": {
+			"geometry": "geometry.chyves_cape",
+			"materials": [
+				{
+					"*": "Material.spectator"
+				}
+			],
+			"color": {
+				"r": "1.0f",
+				"g": "1.0f",
+				"b": "1.0f",
+				"a": "0.3f"
+			},
+			"textures": [
+				"texture.default"
+			]
+		},
+		"controller.render.player.third_person_bow": {
+			"geometry": "Geometry.default",
+			"textures": [
+				"Texture.default"
+			],
+			"part_visibility": [
+				{
+					"*": true
+				},
+				{
+					"helmet": "variable.helmet_layer_visible"
+				},
+				{
+					"leftLegging": "variable.leg_layer_visible"
+				},
+				{
+					"rightLegging": "variable.leg_layer_visible"
+				},
+				{
+					"leftBoot": "variable.boot_layer_visible"
+				},
+				{
+					"rightBoot": "variable.boot_layer_visible"
+				},
+				{
+					"leftSock": "variable.boot_layer_visible && variable.leg_layer_visible"
+				},
+				{
+					"rightSock": "variable.boot_layer_visible && variable.leg_layer_visible"
+				},
+				{
+					"bodyArmor": "variable.chest_layer_visible && !query.has_cape"
+				},
+				{
+					"leftArmArmor": "variable.chest_layer_visible && !query.has_cape"
+				},
+				{
+					"rightArmArmor": "variable.chest_layer_visible && !query.has_cape"
+				},
+				{
+					"belt": "variable.chest_layer_visible && variable.leg_layer_visible"
+				}
+			],
+			"materials": [
+				{
+					"*": "Material.spectator"
+				}
+			],
+			"color": {
+				"r": "1.0f",
+				"g": "1.0f",
+				"b": "1.0f",
+				"a": "0.3f"
+			}
+		},
+		"controller.render.chyves_speed": {
+			"geometry": "geometry.chyves_speed",
+            "materials": [
+                {
+                    "*": "Material.potion_counter"
+                }
+            ],
+            "textures": [
+				"Texture.blank",
+                "array.d2[variable.chyves2]",
+                "array.d1[variable.chyves2/10]"
+            ],
+            "filter_lighting": true,
+            "ignore_lighting": true,
+            "light_color_multiplier": 1.25,
+            "arrays": {
+                "textures": {
+                    "array.d1": [
+                        "Texture.d1_num0",
+                        "Texture.d1_num1",
+                        "Texture.d1_num2",
+                        "Texture.d1_num3",
+                        "Texture.d1_num4",
+                        "Texture.d1_num5",
+                        "Texture.d1_num6",
+                        "Texture.d1_num7",
+                        "Texture.d1_num8",
+                        "Texture.d1_num9"
+                    ],
+                    "array.d2": [
+                        "Texture.d2_num0",
+                        "Texture.d2_num1",
+                        "Texture.d2_num2",
+                        "Texture.d2_num3",
+                        "Texture.d2_num4",
+                        "Texture.d2_num5",
+                        "Texture.d2_num6",
+                        "Texture.d2_num7",
+                        "Texture.d2_num8",
+                        "Texture.d2_num9"
+                    ]
+                }
+            }
+		},
+		"controller.render.chyves_day_time": {
+			"geometry": "geometry.chyves_day_time",
+            "materials": [
+                {
+                    "*": "Material.potion_counter"
+                }
+            ],
+            "textures": [
+				"Texture.blank",
+                "array.d2[variable.chyves3]",
+                "array.d1[variable.chyves3/10]"
+            ],
+            "filter_lighting": true,
+            "ignore_lighting": true,
+            "light_color_multiplier": 1.25,
+            "arrays": {
+                "textures": {
+                    "array.d1": [
+                        "Texture.d1_num0",
+                        "Texture.d1_num1",
+                        "Texture.d1_num2",
+                        "Texture.d1_num3",
+                        "Texture.d1_num4",
+                        "Texture.d1_num5",
+                        "Texture.d1_num6",
+                        "Texture.d1_num7",
+                        "Texture.d1_num8",
+                        "Texture.d1_num9"
+                    ],
+                    "array.d2": [
+                        "Texture.d2_num0",
+                        "Texture.d2_num1",
+                        "Texture.d2_num2",
+                        "Texture.d2_num3",
+                        "Texture.d2_num4",
+                        "Texture.d2_num5",
+                        "Texture.d2_num6",
+                        "Texture.d2_num7",
+                        "Texture.d2_num8",
+                        "Texture.d2_num9"
+                    ]
+                }
+            }
+		},
+		"controller.render.chyves_x1": {
+			"geometry": "geometry.chyves_x",
+            "materials": [
+                {
+                    "*": "Material.potion_counter"
+                }
+            ],
+            "textures": [
+				"array.d3[variable.chyvesx]",
+                "array.d2[variable.chyvesx/10]",
+                "array.d1[variable.chyvesx/100]"
+            ],
+            "filter_lighting": true,
+            "ignore_lighting": true,
+            "light_color_multiplier": 1.25,
+            "arrays": {
+                "textures": {
+                    "array.d1": [
+                        "Texture.d1_num0",
+                        "Texture.d1_num1",
+                        "Texture.d1_num2",
+                        "Texture.d1_num3",
+                        "Texture.d1_num4",
+                        "Texture.d1_num5",
+                        "Texture.d1_num6",
+                        "Texture.d1_num7",
+                        "Texture.d1_num8",
+                        "Texture.d1_num9"
+                    ],
+                    "array.d2": [
+                        "Texture.d2_num0",
+                        "Texture.d2_num1",
+                        "Texture.d2_num2",
+                        "Texture.d2_num3",
+                        "Texture.d2_num4",
+                        "Texture.d2_num5",
+                        "Texture.d2_num6",
+                        "Texture.d2_num7",
+                        "Texture.d2_num8",
+                        "Texture.d2_num9"
+                    ],
+                    "array.d3": [
+                        "Texture.d3_num0",
+                        "Texture.d3_num1",
+                        "Texture.d3_num2",
+                        "Texture.d3_num3",
+                        "Texture.d3_num4",
+                        "Texture.d3_num5",
+                        "Texture.d3_num6",
+                        "Texture.d3_num7",
+                        "Texture.d3_num8",
+                        "Texture.d3_num9"
+                    ]
+                }
+            }
+		},
+		"controller.render.chyves_x2": {
+			"geometry": "geometry.chyves_x2",
+            "materials": [
+                {
+                    "*": "Material.potion_counter"
+                }
+            ],
+            "textures": [
+				"variable.chyves_neg_x ? Texture.negative : Texture.blank",
+				"array.d2[variable.chyvesx/1000]",
+                "array.d1[variable.chyvesx/10000]"
+            ],
+            "filter_lighting": true,
+            "ignore_lighting": true,
+            "light_color_multiplier": 1.25,
+            "arrays": {
+                "textures": {
+                    "array.d1": [
+                        "Texture.d2_num0",
+                        "Texture.d2_num1",
+                        "Texture.d2_num2",
+                        "Texture.d2_num3",
+                        "Texture.d2_num4",
+                        "Texture.d2_num5",
+                        "Texture.d2_num6",
+                        "Texture.d2_num7",
+                        "Texture.d2_num8",
+                        "Texture.d2_num9"
+                    ],
+                    "array.d2": [
+                        "Texture.d3_num0",
+                        "Texture.d3_num1",
+                        "Texture.d3_num2",
+                        "Texture.d3_num3",
+                        "Texture.d3_num4",
+                        "Texture.d3_num5",
+                        "Texture.d3_num6",
+                        "Texture.d3_num7",
+                        "Texture.d3_num8",
+                        "Texture.d3_num9"
+                    ]
+                }
+            }
+		},
+        "controller.render.chyves_y1": {
+			"geometry": "geometry.chyves_y",
+            "materials": [
+                {
+                    "*": "Material.potion_counter"
+                }
+            ],
+            "textures": [
+				"array.d3[variable.chyvesy]",
+                "array.d2[variable.chyvesy/10]",
+                "array.d1[variable.chyvesy/100]"
+            ],
+            "filter_lighting": true,
+            "ignore_lighting": true,
+            "light_color_multiplier": 1.25,
+            "arrays": {
+                "textures": {
+                    "array.d1": [
+                        "Texture.d1_num0",
+                        "Texture.d1_num1",
+                        "Texture.d1_num2",
+                        "Texture.d1_num3",
+                        "Texture.d1_num4",
+                        "Texture.d1_num5",
+                        "Texture.d1_num6",
+                        "Texture.d1_num7",
+                        "Texture.d1_num8",
+                        "Texture.d1_num9"
+                    ],
+                    "array.d2": [
+                        "Texture.d2_num0",
+                        "Texture.d2_num1",
+                        "Texture.d2_num2",
+                        "Texture.d2_num3",
+                        "Texture.d2_num4",
+                        "Texture.d2_num5",
+                        "Texture.d2_num6",
+                        "Texture.d2_num7",
+                        "Texture.d2_num8",
+                        "Texture.d2_num9"
+                    ],
+                    "array.d3": [
+                        "Texture.d3_num0",
+                        "Texture.d3_num1",
+                        "Texture.d3_num2",
+                        "Texture.d3_num3",
+                        "Texture.d3_num4",
+                        "Texture.d3_num5",
+                        "Texture.d3_num6",
+                        "Texture.d3_num7",
+                        "Texture.d3_num8",
+                        "Texture.d3_num9"
+                    ]
+                }
+            }
+		},
+		"controller.render.chyves_y2": {
+			"geometry": "geometry.chyves_y2",
+            "materials": [
+                {
+                    "*": "Material.potion_counter"
+                }
+            ],
+            "textures": [
+				"variable.chyves_neg_y ? Texture.negative : Texture.blank",
+				"array.d2[variable.chyvesy/1000]",
+                "array.d1[variable.chyvesy/10000]"
+            ],
+            "filter_lighting": true,
+            "ignore_lighting": true,
+            "light_color_multiplier": 1.25,
+            "arrays": {
+                "textures": {
+                    "array.d1": [
+                        "Texture.d2_num0",
+                        "Texture.d2_num1",
+                        "Texture.d2_num2",
+                        "Texture.d2_num3",
+                        "Texture.d2_num4",
+                        "Texture.d2_num5",
+                        "Texture.d2_num6",
+                        "Texture.d2_num7",
+                        "Texture.d2_num8",
+                        "Texture.d2_num9"
+                    ],
+                    "array.d2": [
+                        "Texture.d3_num0",
+                        "Texture.d3_num1",
+                        "Texture.d3_num2",
+                        "Texture.d3_num3",
+                        "Texture.d3_num4",
+                        "Texture.d3_num5",
+                        "Texture.d3_num6",
+                        "Texture.d3_num7",
+                        "Texture.d3_num8",
+                        "Texture.d3_num9"
+                    ]
+                }
+            }
+		},
+        "controller.render.chyves_z1": {
+			"geometry": "geometry.chyves_z",
+            "materials": [
+                {
+                    "*": "Material.potion_counter"
+                }
+            ],
+            "textures": [
+				"array.d3[variable.chyvesz]",
+                "array.d2[variable.chyvesz/10]",
+                "array.d1[variable.chyvesz/100]"
+            ],
+            "filter_lighting": true,
+            "ignore_lighting": true,
+            "light_color_multiplier": 1.25,
+            "arrays": {
+                "textures": {
+                    "array.d1": [
+                        "Texture.d1_num0",
+                        "Texture.d1_num1",
+                        "Texture.d1_num2",
+                        "Texture.d1_num3",
+                        "Texture.d1_num4",
+                        "Texture.d1_num5",
+                        "Texture.d1_num6",
+                        "Texture.d1_num7",
+                        "Texture.d1_num8",
+                        "Texture.d1_num9"
+                    ],
+                    "array.d2": [
+                        "Texture.d2_num0",
+                        "Texture.d2_num1",
+                        "Texture.d2_num2",
+                        "Texture.d2_num3",
+                        "Texture.d2_num4",
+                        "Texture.d2_num5",
+                        "Texture.d2_num6",
+                        "Texture.d2_num7",
+                        "Texture.d2_num8",
+                        "Texture.d2_num9"
+                    ],
+                    "array.d3": [
+                        "Texture.d3_num0",
+                        "Texture.d3_num1",
+                        "Texture.d3_num2",
+                        "Texture.d3_num3",
+                        "Texture.d3_num4",
+                        "Texture.d3_num5",
+                        "Texture.d3_num6",
+                        "Texture.d3_num7",
+                        "Texture.d3_num8",
+                        "Texture.d3_num9"
+                    ]
+                }
+            }
+		},
+		"controller.render.chyves_z2": {
+			"geometry": "geometry.chyves_z2",
+            "materials": [
+                {
+                    "*": "Material.potion_counter"
+                }
+            ],
+            "textures": [
+				"variable.chyves_neg_z ? Texture.negative : Texture.blank",
+				"array.d2[variable.chyvesz/1000]",
+                "array.d1[variable.chyvesz/10000]"
+            ],
+            "filter_lighting": true,
+            "ignore_lighting": true,
+            "light_color_multiplier": 1.25,
+            "arrays": {
+                "textures": {
+                    "array.d1": [
+                        "Texture.d2_num0",
+                        "Texture.d2_num1",
+                        "Texture.d2_num2",
+                        "Texture.d2_num3",
+                        "Texture.d2_num4",
+                        "Texture.d2_num5",
+                        "Texture.d2_num6",
+                        "Texture.d2_num7",
+                        "Texture.d2_num8",
+                        "Texture.d2_num9"
+                    ],
+                    "array.d2": [
+                        "Texture.d3_num0",
+                        "Texture.d3_num1",
+                        "Texture.d3_num2",
+                        "Texture.d3_num3",
+                        "Texture.d3_num4",
+                        "Texture.d3_num5",
+                        "Texture.d3_num6",
+                        "Texture.d3_num7",
+                        "Texture.d3_num8",
+                        "Texture.d3_num9"
+                    ]
+                }
+            }
+		}
+	}
+}

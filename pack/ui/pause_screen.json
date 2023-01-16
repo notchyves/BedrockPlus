@@ -1,0 +1,7 @@
+{
+    "pause_screen": {
+        "$screen_content": "chyves_pause.content",
+        "$screen_bg_content": "common.empty_panel",
+        "variables": []
+    }
+}

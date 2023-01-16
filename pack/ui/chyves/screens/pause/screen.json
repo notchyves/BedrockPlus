@@ -1,0 +1,191 @@
+{
+    "namespace": "chyves_pause",
+    "x": {
+        "type": "panel",
+        "size": [
+            20,
+            20
+        ],
+        "controls": [
+            {
+                "text": {
+                    "type": "label",
+                    "text": "x",
+                    "color": [0, 0, 0]
+                }
+            }
+        ]
+    },
+    "close_button": {
+        "type": "panel",
+        "size": [
+            "61%",
+            "71%"
+        ],
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "chyves_hide_pause",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "con": {
+                    "type": "panel",
+                    "size": [
+                        "100% - 4px",
+                        "100% - 4px"
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "controls": [
+                        {
+                            "con2": {
+                                "type": "panel",
+                                "size": [
+                                    "100%",
+                                    "14%"
+                                ],
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "controls": [
+                                    {
+                                        "close_button@common_buttons.light_content_button": {
+                                            "anchor_from": "right_middle",
+                                            "anchor_to": "right_middle",
+                                            "layer": 9000,
+                                            "offset": [
+                                                -5,
+                                                0
+                                            ],
+                                            "size": [
+                                                20,
+                                                20
+                                            ],
+                                            "$pressed_button_name": "button.menu_continue",
+                                            "$default_button_texture": "textures/chyves/tui/blank",
+                                            "$hover_button_texture": "textures/chyves/tui/blank",
+                                            "$pressed_button_texture": "textures/chyves/tui/blank",
+                                            "$default_state_border_visible|default": false,
+                                            "$hover_state_border_visible|default": false,
+                                            "$pressed_state_border_visible|default": false,
+                                            "$locked_state_border_visible|default": false,
+                                            "$button_content": "chyves_pause.x"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "content": {
+        "type": "panel",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "close_button@close_button": {}
+            },
+            {
+                "m_button@chyves_toggle.regular_button_toggle_double": {
+                    "$button_text": "M",
+                    "$tab_view_binding_name": "chyves_hide_pause",
+                    "size": [
+                        25,
+                        25
+                    ],
+                    "$checked_control": "common.empty_panel",
+                    "$checked_hover_control": "common.empty_panel",
+                    "$toggle_name": "show_panel_button",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "chyves_hide_pause",
+                            "source_property_name": "(not #toggle_state)",
+                            "target_property_name": "#visible"
+                        }
+                    ],
+                    "anchor_from": "top_left",
+                    "offset": [
+                        8,
+                        9
+                    ],
+                    "anchor_to": "top_left",
+                    "$toggle_group_forced_index": 2
+                }
+            },
+            {
+                "chyves_content": {
+                    "type": "panel",
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "chyves_hide_pause",
+                            "source_property_name": "(not #toggle_state)",
+                            "target_property_name": "#visible"
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "pause_content": {
+                                "type": "stack_panel",
+                                "orientation": "vertical",
+                                "size": [
+                                    200,
+                                    105
+                                ],
+                                "anchor_from": "center",
+                                "anchor_to": "center",
+                                "controls": [
+                                    {
+                                        "resume@chyves_button.regular_button": {
+                                            "$pressed_button_name": "button.menu_continue",
+                                            "$button_text": "menu.returnToGame",
+                                            "size": [
+                                                200,
+                                                35
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "settings@chyves_button.regular_button": {
+                                            "$pressed_button_name": "button.menu_settings",
+                                            "$button_text": "menu.settings",
+                                            "size": [
+                                                200,
+                                                35
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "savequit@chyves_button.regular_button": {
+                                            "$pressed_button_name": "button.menu_quit",
+                                            "$button_text": "pauseScreen.quit",
+                                            "size": [
+                                                200,
+                                                35
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,234 @@
+{
+    "namespace": "chyves_mod_menu",
+    "mod_menu": {
+        "type": "panel",
+        "size": [
+            "61%",
+            "71%"
+        ],
+        "layer": 10,
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "chyves_hide_pause",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "background": {
+                    "type": "image",
+                    "texture": "textures/ui/Black",
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "alpha": 0.3,
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "controls": [
+                        {
+                            "background2": {
+                                "type": "image",
+                                "texture": "textures/ui/Black",
+                                "size": [
+                                    "100% - 4px",
+                                    "100% - 4px"
+                                ],
+                                "alpha": 0.2,
+                                "anchor_from": "center",
+                                "anchor_to": "center",
+                                "controls": [
+                                    {
+                                        "mod_menu_content@mod_menu_content": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "mod_menu_content": {
+        "type": "stack_panel",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "title": {
+                    "type": "image",
+                    "size": [
+                        "100%",
+                        "14%"
+                    ],
+                    "texture": "textures/chyves/tui/buttons/regular/regular_button_hover",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "controls": [
+                        {
+                            "title_text": {
+                                "type": "label",
+                                "text": "Bedrock+",
+                                "font_scale_factor": 1.6,
+                                "font_type": "MinecraftTen",
+                                "offset": [
+                                    0,
+                                    -2
+                                ],
+                                "color": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "anchor_from": "center",
+                                "anchor_to": "center",
+                                "text_alignment": "center"
+                            }
+                        },
+                        {
+                            "close_button@chyves_toggle.toggle_panel": {
+                                "anchor_from": "right_middle",
+                                "anchor_to": "right_middle",
+                                "layer": 9000,
+                                "offset": [
+                                    -5,
+                                    -2
+                                ],
+                                "size": [
+                                    20,
+                                    20
+                                ],
+                                "$is_back_button": true,
+                                "$unchecked_control": "",
+                                "$unchecked_hover_control": "",
+                                "$toggle_name": "show_panel_button",
+                                "$tab_view_binding_name": "chyves_hide_pause",
+                                "$toggle_default_state": true,
+                                "$toggle_group_forced_index": 0,
+                                "$toggle_focus_enabled": false
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "content": {
+                    "type": "panel",
+                    "size": [
+                        "100%",
+                        "fill"
+                    ],
+                    "controls": [
+                        {
+                            "modules_tab@modules_tab": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "bottom_tabs": {
+                    "type": "stack_panel",
+                    "size": [
+                        "100%",
+                        "15%"
+                    ],
+                    "orientation": "horizontal",
+                    "anchor_from": "bottom_middle",
+                    "anchor_to": "bottom_middle",
+                    "controls": [
+                        {
+                            "mods_toggle@chyves_toggle.regular_button_toggle": {
+                                "size": [
+                                    "25%",
+                                    "100%"
+                                ],
+                                "$button_text": "Modules",
+                                "$toggle_name": "bottom_buttons_toggles",
+                                "$toggle_group_forced_index": 0,
+                                "$tab_view_binding_name": "chyves_modules_tab"
+                            }
+                        },
+                        {
+                            "crosshairs_toggle@chyves_toggle.regular_button_toggle": {
+                                "size": [
+                                    "25%",
+                                    "100%"
+                                ],
+                                "$button_text": "Crosshairs",
+                                "$toggle_name": "bottom_buttons_toggles",
+                                "$toggle_group_forced_index": 1
+                            }
+                        },
+                        {
+                            "elements_toggle@chyves_toggle.regular_button_toggle": {
+                                "size": [
+                                    "25%",
+                                    "100%"
+                                ],
+                                "$button_text": "Elements",
+                                "$toggle_name": "bottom_buttons_toggles",
+                                "$toggle_group_forced_index": 2
+                            }
+                        },
+                        {
+                            "credits_toggle@chyves_toggle.regular_button_toggle": {
+                                "size": [
+                                    "25%",
+                                    "100%"
+                                ],
+                                "$button_text": "Credits",
+                                "$toggle_name": "bottom_buttons_toggles",
+                                "$toggle_group_forced_index": 3
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "modules_tab@common.scrolling_panel": {
+        "type": "panel",
+        "$show_background": false,
+        "$scroll_size": [
+            "5px",
+            "100%"
+        ],
+        "$scroll_bar_left_padding_size": [
+            0,
+            0
+        ],
+        "layer": 15,
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "offset": [
+            2,
+            0
+        ],
+        "$scrolling_content": "chyves_mod_menu.modules_tab_panel",
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "chyves_modules_tab",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+    "modules_tab_panel": {
+        "type": "stack_panel",
+        "orientation": "vertical",
+        "size": [
+            "100%",
+            "100%c"
+        ]
+    }
+}

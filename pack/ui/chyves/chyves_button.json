@@ -1,0 +1,194 @@
+{
+    "namespace": "chyves_button",
+    "regular_button@common_buttons.light_content_button": {
+        "$default_button_texture": "textures/chyves/tui/blank",
+        "$hover_button_texture": "textures/chyves/tui/blank",
+        "$pressed_button_texture": "textures/chyves/tui/blank",
+        "$default_state_border_visible|default": false,
+        "$hover_state_border_visible|default": false,
+        "$pressed_state_border_visible|default": false,
+        "$locked_state_border_visible|default": false,
+        "$button_content": "chyves_button.regular_button_content",
+        "layer": 1
+    },
+    "regular_button_content": {
+        "type": "image",
+        "texture": "$texture",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "layer": 2,
+        "$texture|default": "",
+        "$offset|default": [],
+        "$text_color|default": [0, 0, 0],
+        "variables": [
+            {
+                "requires": "$default_state",
+                "$texture": "textures/chyves/tui/buttons/regular/regular_button_state",
+                "$offset": [
+                    0,
+                    -0.5
+                ],
+                "$text_color": [0, 0, 0]
+            },
+            {
+                "requires": "$hover_state",
+                "$texture": "textures/chyves/tui/buttons/regular/regular_button_hover",
+                "$offset": [
+                    0,
+                    -0.5
+                ],
+                "$text_color": [0, 0, 0]
+            },
+            {
+                "requires": "$pressed_state",
+                "$texture": "textures/chyves/tui/buttons/regular/regular_button_pressed",
+                "$offset": [
+                    0,
+                    1
+                ],
+                "$text_color": [1, 1, 1]
+            }
+        ],
+        "controls": [
+            {
+                "label": {
+                    "type": "label",
+                    "text": "$button_text",
+                    "offset": "$offset",
+                    "color": "$text_color",
+                    "layer": 3
+                }
+            }
+        ]
+    },
+    "green_button@common_buttons.light_content_button": {
+        "$default_button_texture": "textures/chyves/tui/blank",
+        "$hover_button_texture": "textures/chyves/tui/blank",
+        "$pressed_button_texture": "textures/chyves/tui/blank",
+        "$default_state_border_visible|default": false,
+        "$hover_state_border_visible|default": false,
+        "$pressed_state_border_visible|default": false,
+        "$locked_state_border_visible|default": false,
+        "$button_content": "chyves_button.green_button_content",
+        "layer": 1
+    },
+    "green_button_content": {
+        "type": "image",
+        "texture": "$texture",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "layer": 2,
+        "$texture|default": "",
+        "$offset|default": [],
+        "variables": [
+            {
+                "requires": "$default_state",
+                "$texture": "textures/chyves/tui/buttons/green/green_button_state",
+                "$offset": [
+                    0,
+                    -1.5
+                ]
+            },
+            {
+                "requires": "$hover_state",
+                "$texture": "textures/chyves/tui/buttons/green/green_button_hover",
+                "$offset": [
+                    0,
+                    -1.5
+                ]
+            },
+            {
+                "requires": "$pressed_state",
+                "$texture": "textures/chyves/tui/buttons/green/green_button_pressed",
+                "$offset": [
+                    0,
+                    0
+                ]
+            }
+        ],
+        "controls": [
+            {
+                "label": {
+                    "type": "label",
+                    "text": "$button_text",
+                    "offset": "$offset",
+                    "color": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "font_scale_factor": 1.2,
+                    "font_type": "MinecraftTen",
+                    "layer": 3
+                }
+            }
+        ]
+    },
+    "pink_button@common_buttons.light_content_button": {
+        "$default_button_texture": "textures/chyves/tui/blank",
+        "$hover_button_texture": "textures/chyves/tui/blank",
+        "$pressed_button_texture": "textures/chyves/tui/blank",
+        "$default_state_border_visible|default": false,
+        "$hover_state_border_visible|default": false,
+        "$pressed_state_border_visible|default": false,
+        "$locked_state_border_visible|default": false,
+        "$button_content": "chyves_button.pink_button_content",
+        "layer": 1
+    },
+    "pink_button_content": {
+        "type": "image",
+        "texture": "$texture",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "layer": 2,
+        "$texture|default": "",
+        "$offset|default": [],
+        "variables": [
+            {
+                "requires": "$default_state",
+                "$texture": "textures/chyves/tui/buttons/pink/pink_button_state",
+                "$offset": [
+                    0,
+                    -0.5
+                ]
+            },
+            {
+                "requires": "$hover_state",
+                "$texture": "textures/chyves/tui/buttons/pink/pink_button_hover",
+                "$offset": [
+                    0,
+                    -0.5
+                ]
+            },
+            {
+                "requires": "$pressed_state",
+                "$texture": "textures/chyves/tui/buttons/pink/pink_button_pressed",
+                "$offset": [
+                    0,
+                    1
+                ]
+            }
+        ],
+        "controls": [
+            {
+                "label": {
+                    "type": "label",
+                    "text": "$button_text",
+                    "offset": "$offset",
+                    "color": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "layer": 3
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,397 @@
+{
+    "gui_hotbar_grid_item": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_back",
+                "value": [
+                    {
+                        "shiny_pots_glint@chyves_hud_renderers.shiny_pots_glint": {}
+                    }
+                ]
+            }
+        ]
+    },
+    "brightener": {
+        "type": "image",
+        "texture": "textures/ui/white",
+        "size": [
+            99999,
+            99999
+        ],
+        "alpha": 0.08,
+        "layer": 999999
+    },
+    "status_hud": {
+        "type": "image",
+        "texture": "textures/ui/hud_tip_text_background",
+        "size": [
+            90,
+            15
+        ],
+        "layer": 1,
+        "alpha": 0.6,
+        "controls": [
+            {
+                "status_hud_con@status_hud_con": {}
+            }
+        ]
+    },
+    "status_hud_con": {
+        "type": "custom",
+        "renderer": "live_player_renderer",
+        "size": [
+            16.5,
+            16.5
+        ],
+        "layer": 2,
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "offset": [
+            0,
+            -993.4
+        ]
+    },
+    "speed_hud": {
+        "type": "image",
+        "texture": "textures/ui/hud_tip_text_background",
+        "size": [
+            90,
+            15
+        ],
+        "layer": 1,
+        "alpha": 0.6,
+        "controls": [
+            {
+                "speed_hud_con@speed_hud_con": {}
+            },
+            {
+                "speed_hud_con2@speed_hud_con2": {}
+            }
+        ]
+    },
+    "speed_hud_con": {
+        "type": "custom",
+        "renderer": "live_player_renderer",
+        "size": [
+            16.89,
+            16.89
+        ],
+        "layer": 2,
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "offset": [
+            -5.45,
+            -2006.3
+        ]
+    },
+    "speed_hud_con2": {
+        "type": "label",
+        "text": "m/s",
+        "size": [
+            47,
+            17.1
+        ],
+        "layer": 2,
+        "anchor_from": "right_middle",
+        "anchor_to": "right_middle",
+        "offset": [
+            3.23,
+            3.8
+        ]
+    },
+    "day_hud": {
+        "type": "image",
+        "texture": "textures/ui/hud_tip_text_background",
+        "size": [
+            90,
+            15
+        ],
+        "layer": 1,
+        "alpha": 0.6,
+        "controls": [
+            {
+                "day_hud_con@day_hud_con": {}
+            },
+            {
+                "day_hud_con2@day_hud_con2": {}
+            }
+        ]
+    },
+    "day_hud_con": {
+        "type": "custom",
+        "renderer": "live_player_renderer",
+        "size": [
+            16.89,
+            16.89
+        ],
+        "layer": 2,
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "offset": [
+            -16.45,
+            -2996.41
+        ]
+    },
+    "day_hud_con2": {
+        "type": "label",
+        "text": "%% of Day",
+        "size": [
+            57,
+            17.1
+        ],
+        "layer": 2,
+        "anchor_from": "right_middle",
+        "anchor_to": "right_middle",
+        "offset": [
+            -0.2,
+            4.2
+        ]
+    },
+    "force_coords": {
+        "type": "custom",
+        "renderer": "live_player_renderer",
+        "size": [
+            94.1,
+            16.89
+        ],
+        "layer": 2,
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "offset": [
+            -5.45,
+            -4026.3
+        ]
+    },
+    "directionhud": {
+        "type": "image",
+        "texture": "textures/ui/Black",
+        "size": [
+            133.3,
+            12.8
+        ],
+        "alpha": 0.6,
+        "controls": [
+            {
+                "panel": {
+                    "type": "panel",
+                    "layer": 4000,
+                    "controls": [
+                        {
+                            "directionhud_content": {
+                                "type": "custom",
+                                "renderer": "paper_doll_renderer",
+                                "anchor_to": "top_middle",
+                                "anchor_from": "top_middle",
+                                "offset": [
+                                    0,
+                                    2783
+                                ],
+                                "size": [
+                                    39,
+                                    39
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "top_middle_mod_content": {
+        "type": "stack_panel",
+        "size": [
+            "100%",
+            "100%c"
+        ],
+        "offset": [
+            0,
+            10
+        ],
+        "anchor_to": "top_middle",
+        "anchor_from": "top_middle",
+        "use_child_anchors": true,
+        "controls": [
+            {
+                "bossbar_padding": {
+                    "type": "panel",
+                    "size": [
+                        15,
+                        15
+                    ],
+                    "bindings": [
+                        {
+                            "binding_name": "#bar_visible",
+                            "binding_type": "collection",
+                            "binding_collection_name": "boss_bars"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#bar_visible)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "mobile_padding": {
+                    "type": "panel",
+                    "size": [
+                        0,
+                        18
+                    ],
+                    "ignored": "(not $touch)"
+                }
+            },
+            {
+                "directionhud@directionhud": {}
+            }
+        ]
+    },
+    "bottom_stack": {
+        "type": "stack_panel",
+        "orientation": "vertical",
+        "anchor_from": "bottom_right",
+        "anchor_to": "bottom_right",
+        "size": [
+            90,
+            "100%c"
+        ],
+        "offset": [
+            -2,
+            0
+        ],
+        "controls": [
+            {
+                "ck@chyves_hud_renderers.ck": {
+                    "offset": [
+                        -2,
+                        0
+                    ]
+                }
+            },
+            {
+                "pad": {
+                    "type": "panel",
+                    "size": [
+                        5,
+                        5
+                    ]
+                }
+            },
+            {
+                "status_hud@status_hud": {}
+            },
+            {
+                "pad": {
+                    "type": "panel",
+                    "size": [
+                        3,
+                        3
+                    ]
+                }
+            },
+            {
+                "speed_hud@speed_hud": {}
+            },
+            {
+                "pad": {
+                    "type": "panel",
+                    "size": [
+                        3,
+                        3
+                    ]
+                }
+            },
+            {
+                "day_hud@day_hud": {}
+            },
+            {
+                "pad": {
+                    "type": "panel",
+                    "size": [
+                        5,
+                        5
+                    ]
+                }
+            }
+        ]
+    },
+    "content": {
+        "type": "panel",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "mod_menu@chyves_mod_menu.mod_menu": {}
+            },
+            {
+                "bottom_stack@bottom_stack": {}
+            },
+            {
+                "top_middle_mod_content@top_middle_mod_content": {}
+            }
+        ],
+        "bindings": [
+            {
+                "binding_name": "#hud_visible",
+                "binding_name_override": "#visible",
+                "binding_type": "global"
+            }
+        ]
+    },
+    "hud_content": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": [
+                    {
+                        "m_button@chyves_toggle.toggle_panel_double": {
+                            "$tab_view_binding_name": "chyves_hide_pause",
+                            "size": [
+                                25,
+                                25
+                            ],
+                            "offset": [
+                                8,
+                                9
+                            ],
+                            "$checked_control": "common.empty_panel",
+                            "$checked_hover_control": "common.empty_panel",
+                            "$toggle_name": "show_panel_button",
+                            "anchor_from": "top_left",
+                            "bindings": [
+                                {
+                                    "binding_type": "view",
+                                    "source_control_name": "chyves_hide_pause",
+                                    "source_property_name": "(not #toggle_state)",
+                                    "target_property_name": "#visible"
+                                }
+                            ],
+                            "anchor_to": "top_left",
+                            "$toggle_group_forced_index": 5
+                        }
+                    },
+                    {
+                        "content@hud.content": {}
+                    },
+                    {
+                        "brightener@brightener": {}
+                    },
+                    {
+                        "force_coords@force_coords": {}
+                    }
+                ]
+            }
+        ]
+    },
+    "hud_screen": {
+        "always_accepts_input": true,
+        "render_only_when_topmost": false,
+        "$use_loading_bars": false,
+        "$screen_animations": []
+    }
+}

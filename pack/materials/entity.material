@@ -1,0 +1,65 @@
+{
+    "materials": {
+        "version": "1.0.0",
+        "potion_counter:wither_boss_armor": {
+            "+defines": [
+                "USE_MULTITEXTURE"
+            ],
+            "+states": [
+                "DisableAlphaWrite"
+            ],
+            "msaaSupport": "Both",
+            "+samplerStates": [
+                {
+                    "samplerIndex": 0,
+                    "textureWrap": "Clamp"
+                },
+                {
+                    "samplerIndex": 1,
+                    "textureWrap": "Clamp"
+                },
+                {
+                    "samplerIndex": 2,
+                    "textureWrap": "Clamp"
+                }
+            ]
+        },
+        "force_coords:wither_boss_armor": {
+            "+defines": [
+                "USE_MULTITEXTURE"
+            ],
+            "+states": [
+                "DisableAlphaWrite"
+            ],
+            "msaaSupport": "Both",
+            "+samplerStates": [
+                {
+                    "samplerIndex": 0,
+                    "textureWrap": "Clamp"
+                },
+                {
+                    "samplerIndex": 1,
+                    "textureWrap": "Clamp"
+                },
+                {
+                    "samplerIndex": 2,
+                    "textureWrap": "Clamp"
+                }
+            ]
+        },
+        "directionhud:entity_alphablend": {
+            "+defines": [ "USE_UV_ANIM" ],
+            "+states": [
+                "DisableAlphaWrite"
+            ],
+            "msaaSupport": "Both",
+            "+samplerStates": [
+                {
+                    "samplerIndex": 0,
+                    "textureWrap": "Repeat",
+                    "textureFilter": "Point"
+                }
+            ]
+        }
+    }
+}
