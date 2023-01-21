@@ -14,6 +14,7 @@
 			"textures": {
 				"default": "textures/entity/steve",
 				"cape": "textures/entity/cape_invisible",
+				"enchanted": "textures/misc/enchanted_item_glint",
 				"d1_num0": "textures/chyves/tui/numbers/1_0",
 				"d1_num1": "textures/chyves/tui/numbers/1_1",
 				"d1_num2": "textures/chyves/tui/numbers/1_2",
@@ -75,6 +76,32 @@
 				"d6_num8": "textures/chyves/tui/numbers/6_8",
 				"d6_num9": "textures/chyves/tui/numbers/6_9",
 				"negative": "textures/chyves/tui/numbers/negative",
+				"leather_helmet": "textures/chyves/tui/armorhud/leather_helmet",
+				"leather_chestplate": "textures/chyves/tui/armorhud/leather_chestplate",
+				"leather_leggings": "textures/chyves/tui/armorhud/leather_leggings",
+				"leather_boots": "textures/chyves/tui/armorhud/leather_boots",
+				"chainmail_helmet": "textures/items/chainmail_helmet",
+				"chainmail_chestplate": "textures/items/chainmail_chestplate",
+				"chainmail_leggings": "textures/items/chainmail_leggings",
+				"chainmail_boots": "textures/items/chainmail_boots",
+				"diamond_helmet": "textures/items/diamond_helmet",
+				"diamond_chestplate": "textures/items/diamond_chestplate",
+				"diamond_leggings": "textures/items/diamond_leggings",
+				"diamond_boots": "textures/items/diamond_boots",
+				"gold_helmet": "textures/items/gold_helmet",
+				"gold_chestplate": "textures/items/gold_chestplate",
+				"gold_leggings": "textures/items/gold_leggings",
+				"gold_boots": "textures/items/gold_boots",
+				"iron_helmet": "textures/items/iron_helmet",
+				"iron_chestplate": "textures/items/iron_chestplate",
+				"iron_leggings": "textures/items/iron_leggings",
+				"iron_boots": "textures/items/iron_boots",
+				"netherite_helmet": "textures/items/netherite_helmet",
+				"netherite_chestplate": "textures/items/netherite_chestplate",
+				"netherite_leggings": "textures/items/netherite_leggings",
+				"netherite_boots": "textures/items/netherite_boots",
+				"elytra": "textures/items/elytra",
+				"turtle_helmet": "textures/items/turtle_helmet",
 				"directionhud": "textures/chyves/tui/directionhud",
 				"jumping": "textures/chyves/tui/status_hud/jumping",
 				"moving": "textures/chyves/tui/status_hud/moving",
@@ -88,17 +115,23 @@
 			"geometry": {
 				"default": "geometry.humanoid.custom",
 				"cape": "geometry.cape",
+				"blank": "geometry.chyves_murder_icon",
 				"status_hud": "geometry.status_hud",
 				"chyves_cape": "geometry.chyves_cape",
 				"directionhud": "geometry.directionhud",
 				"chyves_speed": "geometry.chyves_speed",
-				"chyves_day_time": "geometry.chyves_day_time",
 				"chyves_x": "geometry.chyves_x",
 				"chyves_x2": "geometry.chyves_x2",
 				"chyves_y": "geometry.chyves_y",
 				"chyves_y2": "geometry.chyves_y2",
 				"chyves_z": "geometry.chyves_z",
-				"chyves_z2": "geometry.chyves_z2"
+				"chyves_z2": "geometry.chyves_z2",
+				"chyves_ah_helmet": "geometry.chyves_ah_helmet",
+				"chyves_ah_chestplate": "geometry.chyves_ah_chestplate",
+				"chyves_ah_leggings": "geometry.chyves_ah_leggings",
+				"chyves_ah_boots": "geometry.chyves_ah_boots",
+				"chyves_mm_numbers": "geometry.chyves_mm_numbers",
+				"chyves_mm_numbers_two": "geometry.chyves_mm_numbers_two"
 			},
 			"scripts": {
 				"scale": "0.9375",
@@ -119,9 +152,19 @@
 					"variable.chyvesxz = 0.0;",
 					"variable.chyves_neg_x = 0.0;",
 					"variable.chyves_neg_y = 0.0;",
-					"variable.chyves_neg_z = 0.0;"
+					"variable.chyves_neg_z = 0.0;",
+					"variable.enchanted_helmet = 0.0;",
+					"variable.enchanted_chestplate = 0.0;",
+					"variable.enchanted_leggings = 0.0;",
+					"variable.enchanted_boots = 0.0;"
 				],
 				"pre_animation": [
+					"temp.chyves_nearest_player = temp.chyves_nearest_player ?? -1;",
+					"temp.chyves_nearest_player_health = temp.chyves_nearest_player_health ?? -1;",
+					"variable.enchanted_helmet = query.armor_material_slot(0) == 1 || query.armor_material_slot(0) == 3;",
+					"variable.enchanted_chestplate = query.armor_material_slot(1) == 1 || query.armor_material_slot(1) == 3;",
+					"variable.enchanted_leggings = query.armor_material_slot(2) == 1 || query.armor_material_slot(2) == 3;",
+					"variable.enchanted_boots = query.armor_material_slot(3) == 1 || query.armor_material_slot(3) == 3;",
 					"variable.helmet_layer_visible = 1.0;",
 					"variable.leg_layer_visible = 1.0;",
 					"variable.boot_layer_visible = 1.0;",
@@ -215,6 +258,9 @@
 			},
 			"render_controllers": [
 				{
+					"controller.render.blank": "q.is_alive && !v.is_paperdoll && !v.is_first_person && !q.is_in_ui"
+				},
+				{
 					"controller.render.player.first_person": "variable.is_first_person"
 				},
 				{
@@ -242,9 +288,6 @@
 					"controller.render.chyves_speed": "query.is_in_ui && !variable.is_paperdoll"
 				},
 				{
-					"controller.render.chyves_day_time": "query.is_in_ui && !variable.is_paperdoll"
-				},
-				{
 					"controller.render.chyves_x1": "query.is_in_ui && !variable.is_paperdoll"
 				},
 				{
@@ -261,9 +304,28 @@
 				},
 				{
 					"controller.render.chyves_z2": "query.is_in_ui && !variable.is_paperdoll"
+				},
+				{
+					"controller.render.armor_helmet": "query.has_armor_slot(0)"
+				},
+				{
+					"controller.render.armor_chestplate": "query.has_armor_slot(1)"
+				},
+				{
+					"controller.render.armor_leggings": "query.has_armor_slot(2)"
+				},
+				{
+					"controller.render.armor_boots": "query.has_armor_slot(3)"
+				},
+				{
+					"controller.render.chyves_target_distance": "variable.is_paperdoll && !query.is_in_ui"
+				},
+				{
+					"controller.render.chyves_target_health": "variable.is_paperdoll && !query.is_in_ui"
 				}
 			],
 			"enable_attachables": true
 		}
 	}
 }
+// ADD POTION COUNTER TO TARGET HUD

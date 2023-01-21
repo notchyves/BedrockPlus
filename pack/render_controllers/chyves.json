@@ -1,7 +1,23 @@
 {
 	"format_version": "1.8.0",
 	"render_controllers": {
-		"controller.render.status_hud": {
+        "controller.render.blank": {
+            "geometry": "geometry.blank",
+			"materials": [
+				{
+					"*": "material.default"
+				}
+			],
+            "textures": [
+				"temp.chyves_nearest_player = query.distance_from_camera; temp.chyves_nearest_player_health = query.health; return Texture.blank;"
+			],
+			"is_hurt_color": {},
+            "on_fire_color": {},
+            "filter_lighting": true,
+            "ignore_lighting": true
+        },
+
+	    "controller.render.status_hud": {
 			"geometry": "geometry.status_hud",
 			"materials": [
 				{
@@ -136,50 +152,6 @@
 				"Texture.blank",
                 "array.d2[variable.chyves2]",
                 "array.d1[variable.chyves2/10]"
-            ],
-            "filter_lighting": true,
-            "ignore_lighting": true,
-            "light_color_multiplier": 1.25,
-            "arrays": {
-                "textures": {
-                    "array.d1": [
-                        "Texture.d1_num0",
-                        "Texture.d1_num1",
-                        "Texture.d1_num2",
-                        "Texture.d1_num3",
-                        "Texture.d1_num4",
-                        "Texture.d1_num5",
-                        "Texture.d1_num6",
-                        "Texture.d1_num7",
-                        "Texture.d1_num8",
-                        "Texture.d1_num9"
-                    ],
-                    "array.d2": [
-                        "Texture.d2_num0",
-                        "Texture.d2_num1",
-                        "Texture.d2_num2",
-                        "Texture.d2_num3",
-                        "Texture.d2_num4",
-                        "Texture.d2_num5",
-                        "Texture.d2_num6",
-                        "Texture.d2_num7",
-                        "Texture.d2_num8",
-                        "Texture.d2_num9"
-                    ]
-                }
-            }
-		},
-		"controller.render.chyves_day_time": {
-			"geometry": "geometry.chyves_day_time",
-            "materials": [
-                {
-                    "*": "Material.potion_counter"
-                }
-            ],
-            "textures": [
-				"Texture.blank",
-                "array.d2[variable.chyves3]",
-                "array.d1[variable.chyves3/10]"
             ],
             "filter_lighting": true,
             "ignore_lighting": true,
@@ -512,6 +484,279 @@
                     ]
                 }
             }
-		}
+		},
+
+        "controller.render.armor_helmet": {
+            "arrays": {
+                "textures": {
+                    "array.helmets": [
+                        "texture.leather_helmet",
+                        "texture.chainmail_helmet",
+                        "texture.iron_helmet",
+                        "texture.diamond_helmet",
+                        "texture.gold_helmet",
+                        "texture.gold_helmet", //pad array
+                        "texture.turtle_helmet",
+                        "texture.netherite_helmet"
+                    ]
+                }
+            },
+            "geometry": "Geometry.chyves_ah_helmet",
+            "materials": [
+                {
+                    "*": " material.default"
+                }
+            ],
+            "overlay_color": {
+                "r": "variable.enchanted_helmet ? 100/255 : 0",
+                "g": 0,
+                "b": "variable.enchanted_helmet ? 255/255 : 0",
+                "a": "variable.enchanted_helmet ? 0.05 * math.cos(query.life_time * 450) + 0.35 : 0"
+            },
+            "is_hurt_color": {
+                "r": "variable.enchanted_helmet ? 100/255 : 0",
+                "g": 0,
+                "b": "variable.enchanted_helmet ? 255/255 : 0",
+                "a": "variable.enchanted_helmet ? 0.05 * math.cos(query.life_time * 450) + 0.35 : 0"
+            },
+            "on_fire_color": {
+                "r": "variable.enchanted_helmet ? 100/255 : 0",
+                "g": 0,
+                "b": "variable.enchanted_helmet ? 255/255 : 0",
+                "a": "variable.enchanted_helmet ? 0.05 * math.cos(query.life_time * 450) + 0.35 : 0"
+            },
+            "filter_lighting": true,
+            "ignore_lighting": true,
+            "textures": [
+                "array.helmets[query.armor_texture_slot(0)]"
+            ]
+        },
+        "controller.render.armor_chestplate": {
+            "arrays": {
+                "textures": {
+                    "array.chestplates": [
+                        "texture.leather_chestplate",
+                        "texture.chainmail_chestplate",
+                        "texture.iron_chestplate",
+                        "texture.diamond_chestplate",
+                        "texture.gold_chestplate",
+                        "texture.elytra",
+                        "texture.elytra", //pad array
+                        "texture.netherite_chestplate"
+                    ]
+                }
+            },
+            "geometry": "Geometry.chyves_ah_chestplate",
+            "materials": [
+                {
+                    "*": " material.default"
+                }
+            ],
+            "overlay_color": {
+                "r": "variable.enchanted_chestplate ? 100/255 : 0",
+                "g": 0,
+                "b": "variable.enchanted_chestplate ? 255/255 : 0",
+                "a": "variable.enchanted_chestplate ? 0.05 * math.cos(query.life_time * 450) + 0.35 : 0"
+            },
+            "is_hurt_color": {
+                "r": "variable.enchanted_chestplate ? 100/255 : 0",
+                "g": 0,
+                "b": "variable.enchanted_chestplate ? 255/255 : 0",
+                "a": "variable.enchanted_chestplate ? 0.05 * math.cos(query.life_time * 450) + 0.35 : 0"
+            },
+            "on_fire_color": {
+                "r": "variable.enchanted_chestplate ? 100/255 : 0",
+                "g": 0,
+                "b": "variable.enchanted_chestplate ? 255/255 : 0",
+                "a": "variable.enchanted_chestplate ? 0.05 * math.cos(query.life_time * 450) + 0.35 : 0"
+            },
+            "filter_lighting": true,
+            "ignore_lighting": true,
+            "textures": [
+                "array.chestplates[query.armor_texture_slot(1)]"
+            ]
+        },
+        "controller.render.armor_leggings": {
+            "arrays": {
+                "textures": {
+                    "array.leggings": [
+                        "texture.leather_leggings",
+                        "texture.chainmail_leggings",
+                        "texture.iron_leggings",
+                        "texture.diamond_leggings",
+                        "texture.gold_leggings",
+                        "texture.gold_leggings", //pad array
+                        "texture.gold_leggings", //pad array
+                        "texture.netherite_leggings"
+                    ]
+                }
+            },
+            "geometry": "Geometry.chyves_ah_leggings",
+            "materials": [
+                {
+                    "*": " material.default"
+                }
+            ],
+            "overlay_color": {
+                "r": "variable.enchanted_leggings ? 100/255 : 0",
+                "g": 0,
+                "b": "variable.enchanted_leggings ? 255/255 : 0",
+                "a": "variable.enchanted_leggings ? 0.05 * math.cos(query.life_time * 450) + 0.35 : 0"
+            },
+            "is_hurt_color": {
+                "r": "variable.enchanted_leggings ? 100/255 : 0",
+                "g": 0,
+                "b": "variable.enchanted_leggings ? 255/255 : 0",
+                "a": "variable.enchanted_leggings ? 0.05 * math.cos(query.life_time * 450) + 0.35 : 0"
+            },
+            "on_fire_color": {
+                "r": "variable.enchanted_leggings ? 100/255 : 0",
+                "g": 0,
+                "b": "variable.enchanted_leggings ? 255/255 : 0",
+                "a": "variable.enchanted_leggings ? 0.05 * math.cos(query.life_time * 450) + 0.35 : 0"
+            },
+            "filter_lighting": true,
+            "ignore_lighting": true,
+            "textures": [
+                "array.leggings[query.armor_texture_slot(2)]"
+            ]
+        },
+        "controller.render.armor_boots": {
+            "arrays": {
+                "textures": {
+                    "array.boots": [
+                        "texture.leather_boots",
+                        "texture.chainmail_boots",
+                        "texture.iron_boots",
+                        "texture.diamond_boots",
+                        "texture.gold_boots",
+                        "texture.gold_boots", //pad array
+                        "texture.gold_boots", //pad array
+                        "texture.netherite_boots"
+                    ]
+                }
+            },
+            "geometry": "Geometry.chyves_ah_boots",
+            "materials": [
+                {
+                    "*": " material.default"
+                }
+            ],
+            "overlay_color": {
+                "r": "variable.enchanted_boots ? 100/255 : 0",
+                "g": 0,
+                "b": "variable.enchanted_boots ? 255/255 : 0",
+                "a": "variable.enchanted_boots ? 0.05 * math.cos(query.life_time * 450) + 0.35 : 0"
+            },
+            "is_hurt_color": {
+                "r": "variable.enchanted_boots ? 100/255 : 0",
+                "g": 0,
+                "b": "variable.enchanted_boots ? 255/255 : 0",
+                "a": "variable.enchanted_boots ? 0.05 * math.cos(query.life_time * 450) + 0.35 : 0"
+            },
+            "on_fire_color": {
+                "r": "variable.enchanted_boots ? 100/255 : 0",
+                "g": 0,
+                "b": "variable.enchanted_boots ? 255/255 : 0",
+                "a": "variable.enchanted_boots ? 0.05 * math.cos(query.life_time * 450) + 0.35 : 0"
+            },
+            "filter_lighting": true,
+            "ignore_lighting": true,
+            "textures": [
+                "array.boots[query.armor_texture_slot(3)]"
+            ]
+        },
+        "controller.render.chyves_target_distance": {
+            "geometry": "geometry.chyves_mm_numbers",
+            "materials": [
+                {
+                    "*": "material.potion_counter"
+                }
+            ],
+            "textures": [
+				"Texture.blank",
+                "array.d2[temp.chyves_nearest_player]",
+                "array.d1[temp.chyves_nearest_player/10]"
+            ],
+            "filter_lighting": true,
+            "ignore_lighting": true,
+            "light_color_multiplier": 1.25,
+            "arrays": {
+                "textures": {
+                    "array.d1": [
+                        "Texture.d1_num0",
+                        "Texture.d1_num1",
+                        "Texture.d1_num2",
+                        "Texture.d1_num3",
+                        "Texture.d1_num4",
+                        "Texture.d1_num5",
+                        "Texture.d1_num6",
+                        "Texture.d1_num7",
+                        "Texture.d1_num8",
+                        "Texture.d1_num9"
+                    ],
+                    "array.d2": [
+                        "Texture.d2_num0",
+                        "Texture.d2_num1",
+                        "Texture.d2_num2",
+                        "Texture.d2_num3",
+                        "Texture.d2_num4",
+                        "Texture.d2_num5",
+                        "Texture.d2_num6",
+                        "Texture.d2_num7",
+                        "Texture.d2_num8",
+                        "Texture.d2_num9"
+                    ]
+                }
+            },
+            "is_hurt_color": {},
+            "on_fire_color": {}
+        },
+        "controller.render.chyves_target_health": {
+            "geometry": "geometry.chyves_mm_numbers_two",
+            "materials": [
+                {
+                    "*": "material.potion_counter"
+                }
+            ],
+            "textures": [
+				"Texture.blank",
+                "array.d2[temp.chyves_nearest_player_health]",
+                "array.d1[temp.chyves_nearest_player_health/10]"
+            ],
+            "filter_lighting": true,
+            "ignore_lighting": true,
+            "light_color_multiplier": 1.25,
+            "arrays": {
+                "textures": {
+                    "array.d1": [
+                        "Texture.d1_num0",
+                        "Texture.d1_num1",
+                        "Texture.d1_num2",
+                        "Texture.d1_num3",
+                        "Texture.d1_num4",
+                        "Texture.d1_num5",
+                        "Texture.d1_num6",
+                        "Texture.d1_num7",
+                        "Texture.d1_num8",
+                        "Texture.d1_num9"
+                    ],
+                    "array.d2": [
+                        "Texture.d2_num0",
+                        "Texture.d2_num1",
+                        "Texture.d2_num2",
+                        "Texture.d2_num3",
+                        "Texture.d2_num4",
+                        "Texture.d2_num5",
+                        "Texture.d2_num6",
+                        "Texture.d2_num7",
+                        "Texture.d2_num8",
+                        "Texture.d2_num9"
+                    ]
+                }
+            },
+            "is_hurt_color": {},
+            "on_fire_color": {}
+        }
 	}
 }

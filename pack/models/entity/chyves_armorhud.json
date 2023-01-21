@@ -1,0 +1,209 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.chyves_ah_helmet",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [
+					0,
+					0.75,
+					0
+				]
+			},
+			"bones": [
+				{
+					"name": "chyves_ah",
+					"pivot": [
+						0,
+						0,
+						0
+					]
+				},
+				{
+					"name": "chyves_ah_helmet",
+					"parent": "chyves_ah",
+					"pivot": [
+						0,
+						0,
+						0
+					],
+					"cubes": [
+						{
+							"origin": [
+								-8,
+								23,
+								0
+							],
+							"size": [
+								16,
+								16,
+								0
+							],
+							"uv": [
+								0,
+								0
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": {
+				"identifier": "geometry.chyves_ah_chestplate",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [
+					0,
+					0.75,
+					0
+				]
+			},
+			"bones": [
+				{
+					"name": "chyves_ah",
+					"pivot": [
+						0,
+						0,
+						0
+					]
+				},
+				{
+					"name": "chyves_ah_chestplate",
+					"parent": "chyves_ah",
+					"pivot": [
+						0,
+						0,
+						0
+					],
+					"cubes": [
+						{
+							"origin": [
+								-8,
+								8,
+								0
+							],
+							"size": [
+								16,
+								16,
+								0
+							],
+							"uv": [
+								0,
+								0
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": {
+				"identifier": "geometry.chyves_ah_leggings",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [
+					0,
+					0.75,
+					0
+				]
+			},
+			"bones": [
+				{
+					"name": "chyves_ah",
+					"pivot": [
+						0,
+						0,
+						0
+					]
+				},
+				{
+					"name": "chyves_ah_leggings",
+					"parent": "chyves_ah",
+					"pivot": [
+						0,
+						0,
+						0
+					],
+					"cubes": [
+						{
+							"origin": [
+								-8,
+								-9,
+								0
+							],
+							"size": [
+								16,
+								16,
+								0
+							],
+							"uv": [
+								0,
+								0
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": {
+				"identifier": "geometry.chyves_ah_boots",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [
+					0,
+					0.75,
+					0
+				]
+			},
+			"bones": [
+				{
+					"name": "chyves_ah",
+					"pivot": [
+						0,
+						0,
+						0
+					]
+				},
+				{
+					"name": "chyves_ah_boots",
+					"parent": "chyves_ah",
+					"pivot": [
+						0,
+						0,
+						0
+					],
+					"cubes": [
+						{
+							"origin": [
+								-8,
+								-24,
+								0
+							],
+							"size": [
+								16,
+								16,
+								0
+							],
+							"uv": [
+								0,
+								0
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

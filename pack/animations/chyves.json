@@ -15,6 +15,18 @@
                         "(query.is_riding ? query.target_y_rotation)",
                         0
                     ]
+                },
+                "chyves_ah": {
+                    "position": [
+                        0,
+                        "(query.is_swimming ? -21.19 : 0) + 5000",
+                        0
+                    ],
+                    "rotation": [
+                        0,
+                        "(query.is_riding ? query.target_y_rotation)",
+                        0
+                    ]
                 }
             }
         },

@@ -48,7 +48,9 @@
             ]
         },
         "directionhud:entity_alphablend": {
-            "+defines": [ "USE_UV_ANIM" ],
+            "+defines": [
+                "USE_UV_ANIM"
+            ],
             "+states": [
                 "DisableAlphaWrite"
             ],
@@ -58,6 +60,22 @@
                     "samplerIndex": 0,
                     "textureWrap": "Repeat",
                     "textureFilter": "Point"
+                }
+            ]
+        },
+        "e_glint_chyves:entity_alphatest": {
+            "+defines": [
+                "GLINT"
+            ],
+            "msaaSupport": "Both",
+            "+samplerStates": [
+                {
+                    "samplerIndex": 0,
+                    "textureFilter": "Point"
+                },
+                {
+                    "samplerIndex": 1,
+                    "textureWrap": "Repeat"
                 }
             ]
         }

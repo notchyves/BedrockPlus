@@ -100,54 +100,7 @@
             3.8
         ]
     },
-    "day_hud": {
-        "type": "image",
-        "texture": "textures/ui/hud_tip_text_background",
-        "size": [
-            90,
-            15
-        ],
-        "layer": 1,
-        "alpha": 0.6,
-        "controls": [
-            {
-                "day_hud_con@day_hud_con": {}
-            },
-            {
-                "day_hud_con2@day_hud_con2": {}
-            }
-        ]
-    },
-    "day_hud_con": {
-        "type": "custom",
-        "renderer": "live_player_renderer",
-        "size": [
-            16.89,
-            16.89
-        ],
-        "layer": 2,
-        "anchor_from": "center",
-        "anchor_to": "center",
-        "offset": [
-            -16.45,
-            -2996.41
-        ]
-    },
-    "day_hud_con2": {
-        "type": "label",
-        "text": "%% of Day",
-        "size": [
-            57,
-            17.1
-        ],
-        "layer": 2,
-        "anchor_from": "right_middle",
-        "anchor_to": "right_middle",
-        "offset": [
-            -0.2,
-            4.2
-        ]
-    },
+
     "force_coords": {
         "type": "custom",
         "renderer": "live_player_renderer",
@@ -161,7 +114,8 @@
         "offset": [
             -5.45,
             -4026.3
-        ]
+        ],
+        "ignored": true
     },
     "directionhud": {
         "type": "image",
@@ -274,49 +228,150 @@
                 "pad": {
                     "type": "panel",
                     "size": [
-                        5,
-                        5
-                    ]
-                }
-            },
-            {
-                "status_hud@status_hud": {}
-            },
-            {
-                "pad": {
-                    "type": "panel",
-                    "size": [
-                        3,
-                        3
-                    ]
-                }
-            },
-            {
-                "speed_hud@speed_hud": {}
-            },
-            {
-                "pad": {
-                    "type": "panel",
-                    "size": [
-                        3,
-                        3
-                    ]
-                }
-            },
-            {
-                "day_hud@day_hud": {}
-            },
-            {
-                "pad": {
-                    "type": "panel",
-                    "size": [
-                        5,
-                        5
+                        2,
+                        2
                     ]
                 }
             }
         ]
     },
+    "target_hud": {
+        "type": "image",
+        "texture": "textures/ui/hud_tip_text_background",
+        "size": [
+            90,
+            32
+        ],
+        "alpha": 0.6,
+        "controls": [
+            {
+                "target_hud_con@target_hud_con": {}
+            },
+            {
+                "target_hud_con2@target_hud_con2": {}
+            }
+        ]
+    },
+    "target_hud_con2": {
+        "type": "stack_panel",
+        "size": [
+            90,
+            32
+        ],
+        "layer": 2,
+        "orientation": "vertical",
+        "controls": [
+            {
+                "stack1": {
+                    "type": "panel",
+                    "size": [
+                        90,
+                        15
+                    ],
+                    "controls": [
+                        {
+                            "icon": {
+                                "type": "image",
+                                "texture": "textures/chyves/tui/target/distance",
+                                "size": [
+                                    8,
+                                    8
+                                ],
+                                "offset": [
+                                    -37,
+                                    0
+                                ]
+                            }
+                        },
+                        {
+                            "text2": {
+                                "type": "label",
+                                "text": "distance",
+                                "offset": [
+                                    18,
+                                    0
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "pad": {
+                    "type": "panel",
+                    "size": [
+                        2,
+                        2
+                    ]
+                }
+            },
+            {
+                "stack2": {
+                    "type": "panel",
+                    "size": [
+                        90,
+                        15
+                    ],
+                    "controls": [
+                        {
+                            "icon2": {
+                                "type": "image",
+                                "texture": "textures/chyves/tui/target/health",
+                                "size": [
+                                    8,
+                                    8
+                                ],
+                                "offset": [
+                                    -37,
+                                    0
+                                ]
+                            }
+                        },
+                        {
+                            "text2": {
+                                "type": "label",
+                                "text": "hearts",
+                                "offset": [
+                                    21.3,
+                                    0
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "target_hud_con": {
+        "type": "custom",
+        "renderer": "paper_doll_renderer",
+        "size": [
+            41,
+            41
+        ],
+        "offset": [
+            -16,
+            1950
+        ],
+        "anchor_from": "center",
+        "anchor_to": "center"
+    },
+    "armorhud": {
+        "renderer": "live_player_renderer",
+        "size": [
+            17.5,
+            17.5
+        ],
+        "anchor_from": "right_middle",
+        "anchor_to": "right_middle",
+        "layer": 2,
+        "type": "custom",
+        "offset": [
+            0,
+            5100
+        ]
+    },
+    
     "content": {
         "type": "panel",
         "size": [
@@ -324,6 +379,15 @@
             "100%"
         ],
         "controls": [
+            {
+                "armorhud@armorhud": {}
+            },
+            {
+                "target_hud@target_hud": {}
+            },
+            {
+                "force_coords@force_coords": {}
+            },
             {
                 "mod_menu@chyves_mod_menu.mod_menu": {}
             },
@@ -380,9 +444,6 @@
                     },
                     {
                         "brightener@brightener": {}
-                    },
-                    {
-                        "force_coords@force_coords": {}
                     }
                 ]
             }
